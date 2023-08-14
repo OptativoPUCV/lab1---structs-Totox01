@@ -25,19 +25,17 @@ Descripción: Escribe una función que tome un arreglo y su tamaño, y luego
 invierta el orden de sus elementos.
 */
 void reverseArray(int arr[], int size) {
-  if (size % 2 == 0) {
-    for (int i=0, j=size - 1; i<(size/2) ; i++){
-      int temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
+    int left = 0;
+    int right = size - 1;
+    
+    while (left < right) {
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+        
+        left++;
+        right--;
     }
-  } else {
-    for (int i=0, j=size - 1; i<((size/2) - 1) ; i++){
-      int temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
-    }
-  }
 }
 
 /*
