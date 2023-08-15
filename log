@@ -27,3 +27,14 @@ Mon 14 Aug 2023 04:03:04 PM UTC:
  tests:  0|4
 total_score: 30/70
 7ee2c47
+Tue 15 Aug 2023 11:58:57 PM UTC: 
+ exercises.c | 28 ++++++++++++++++++++++++++--
+ 1 file changed, 26 insertions(+), 2 deletions(-)
+In file included from test.c:1:
+exercises.c: In function ‘mergeSortedArrays’:
+exercises.c:81:13: error: ‘mergedArr’ undeclared (first use in this function)
+   81 |             mergedArr[indexMerged] = arr1[index1];
+      |             ^~~~~~~~~
+exercises.c:81:13: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+66deff0
