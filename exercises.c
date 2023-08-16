@@ -29,12 +29,12 @@ void reverseArray(int arr[], int size) {
     int right = size - 1;
     
     while (left < right) {
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
+      int temp = arr[left];
+      arr[left] = arr[right];
+      arr[right] = temp;
         
-        left++;
-        right--;
+      left++;
+      right--;
     }
 }
 
@@ -45,26 +45,26 @@ y su tamaño, y luego devuelva un nuevo arreglo que contenga solo
 los números pares del arreglo original.
 */
 int *filterEvenNumbers(int arr[], int size, int *newSize) {int evenCount = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] % 2 == 0) {
-            evenCount++;
-        }
+  for (int i = 0; i < size; i++) {
+    if (arr[i] % 2 == 0) {
+      evenCount++;
     }
-    int* evenArr = (int*)malloc(evenCount * sizeof(int));
-    if (evenArr == NULL) {
-        printf("Error: No se pudo asignar memoria.\n");
-        exit(1);
+  }
+  int* evenArr = (int*)malloc(evenCount * sizeof(int));
+  if (evenArr == NULL) {
+    printf("Error: No se pudo asignar memoria.\n");
+    exit(1);
+  }
+  int evenIndex = 0;
+  for (int i = 0; i < size; i++) {
+    if (arr[i] % 2 == 0) {
+      evenArr[evenIndex] = arr[i];
+      evenIndex++;
     }
-    int evenIndex = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] % 2 == 0) {
-            evenArr[evenIndex] = arr[i];
-            evenIndex++;
-        }
-    }
+  }
 
-    *newSize = evenCount;
-    return evenArr;
+  *newSize = evenCount;
+  return evenArr;
 }
 
 /*
@@ -76,28 +76,28 @@ arreglos en un tercer arreglo también ordenado.
 void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2, int result[]) {
   int index1 = 0, index2 = 0, indexMerged = 0;
 
-    while (index1 < size1 && index2 < size2) {
-        if (arr1[index1] <= arr2[index2]) {
-            result[indexMerged] = arr1[index1];
-            index1++;
-        } else {
-            result[indexMerged] = arr2[index2];
-            index2++;
-        }
-        indexMerged++;
+  while (index1 < size1 && index2 < size2) {
+    if (arr1[index1] <= arr2[index2]) {
+      result[indexMerged] = arr1[index1];
+      index1++;
+    } else {
+      result[indexMerged] = arr2[index2];
+      index2++;
     }
+    indexMerged++;
+  }
 
-    while (index1 < size1) {
-        result[indexMerged] = arr1[index1];
-        index1++;
-        indexMerged++;
-    }
+  while (index1 < size1) {
+    result[indexMerged] = arr1[index1];
+    index1++;
+    indexMerged++;
+  }
 
-    while (index2 < size2) {
-        result[indexMerged] = arr2[index2];
-        index2++;
-        indexMerged++;
-    }
+  while (index2 < size2) {
+    result[indexMerged] = arr2[index2];
+    index2++;
+    indexMerged++;
+  }
 }
 
 /*
@@ -106,8 +106,27 @@ Descripción: Escribe una función que tome un arreglo y su tamaño,
 y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
   0 si no está ordenado, y -1 si está ordenado en orden descendente.
 */
-int checkSorted(int arr[], int size) { return -2; }
+int checkSorted(int arr[], int size) {
+  int ascending = 1;
+  int descending = 1;
 
+  for (int i = 1; i < size; i++) {
+    if (arr[i] < arr[i - 1]) {
+      ascending = 0;
+    }
+    if (arr[i] > arr[i - 1]) {
+      descending = 0;
+    }
+  }
+
+  if (ascending) {
+    return 1;
+  } else if (descending) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
 /*
 Ejercicio 6: Información de una Biblioteca
 Descripción: Vamos a representar la información de una biblioteca. En la
