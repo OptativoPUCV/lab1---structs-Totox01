@@ -173,27 +173,28 @@ typedef struct nodo {
 } Nodo;
 
 Nodo *crearListaEnlazada(int arr[], int size) {
-  Nodo *primerNodo = NULL;
-  Nodo *segundoNodo = NULL;
+  if (size <= 0) {
+    return NULL;
+  }
+  Nodo *primerNodo = (Nodo *) malloc (sizeof(Nodo));
+  if (primerNodo == NULL) {
+    printf("Error al reservar memoria para el primer nodo");
+    exit(EXIT_FAILURE);
+  }
+  primerNodo->numero = arr[0];
+  primerNodo->siguiente = NULL;
 
-  for (int i = 0; i < size; i++) {
-
-    Nodo nuevoNodo = (Nodo*)malloc(sizeof(Nodo);
-    if (nuevoNodo == NULL) {
-      exit(1);
+  Nodo *actual = primerNodo;
+  for (int i = 0; i < size; i++){
+    Nodo *nuevoNodo = (Nodo *) malloc (sizeof(Nodo));
+    if (nuevoNodo == NULL){
+      printf("Error al reservar memoria para un nuevo nodo");
+      exit(EXIT_FAILURE);
     }
-    
     nuevoNodo->numero = arr[i];
     nuevoNodo->siguiente = NULL;
-
-    if (primerNodo == NULL) {
-      primerNodo = nuevoNodo;
-      segundoNodo = nuevoNodo;
-    } else {
-      segundoNodo->siguiente = nuevoNodo;
-      segundoNodo = nuevoNodo;
-    }
+    actual->siguiente = nuevoNodo;
+    actual = nuevoNodo;
   }
-
   return primerNodo;
 }
