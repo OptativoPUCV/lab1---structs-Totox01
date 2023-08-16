@@ -148,7 +148,8 @@ typedef struct {
   int anioPublicacion;
 } Libro;
 
-void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor, int anioNacimiento, int anioPublicacion){
+void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor,
+                      int anioNacimiento, int anioPublicacion) {
   strcpy(libro->titulo, titulo);
   strcpy(libro->autor.nombre, nombreAutor);
   libro->autor.anioNacimiento = anioNacimiento;
@@ -171,4 +172,28 @@ typedef struct nodo {
   struct nodo *siguiente; // puntero al siguiente nodo
 } Nodo;
 
-Nodo *crearListaEnlazada(int arr[], int size) { return NULL; }
+Nodo *crearListaEnlazada(int arr[], int size) {
+  Nodo *primerNodo = NULL;
+  Nodo *segundoNodo = NULL;
+
+  for (int i = 0; i < size; i++) {
+
+    Nodo nuevoNodo = (Nodo*)malloc(sizeof(Nodo);
+    if (nuevoNodo == NULL) {
+      exit(1);
+    }
+    
+    nuevoNodo->numero = arr[i];
+    nuevoNodo->siguiente = NULL;
+
+    if (primerNodo == NULL) {
+      primerNodo = nuevoNodo;
+      segundoNodo = nuevoNodo;
+    } else {
+      segundoNodo->siguiente = nuevoNodo;
+      segundoNodo = nuevoNodo;
+    }
+  }
+
+  return primerNodo;
+}
