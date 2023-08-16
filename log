@@ -85,3 +85,13 @@ In function ‘strncpy’,
 cc1: all warnings being treated as errors
 Compilation failed
 7146bd3
+Wed 16 Aug 2023 08:53:47 PM UTC: 
+ exercises.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:1:
+exercises.c: In function ‘inicializarLibro’:
+exercises.c:152:18: error: expected expression before ‘)’ token
+  152 |   libro = (libro*) malloc (sizeof(Libro))
+      |                  ^
+Compilation failed
+8522ae1
