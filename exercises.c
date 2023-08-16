@@ -25,17 +25,17 @@ Descripción: Escribe una función que tome un arreglo y su tamaño, y luego
 invierta el orden de sus elementos.
 */
 void reverseArray(int arr[], int size) {
-    int left = 0;
-    int right = size - 1;
-    
-    while (left < right) {
-      int temp = arr[left];
-      arr[left] = arr[right];
-      arr[right] = temp;
-        
-      left++;
-      right--;
-    }
+  int left = 0;
+  int right = size - 1;
+
+  while (left < right) {
+    int temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+
+    left++;
+    right--;
+  }
 }
 
 /*
@@ -44,13 +44,14 @@ Descripción: Escribe una función que tome un arreglo de enteros
 y su tamaño, y luego devuelva un nuevo arreglo que contenga solo
 los números pares del arreglo original.
 */
-int *filterEvenNumbers(int arr[], int size, int *newSize) {int evenCount = 0;
+int *filterEvenNumbers(int arr[], int size, int *newSize) {
+  int evenCount = 0;
   for (int i = 0; i < size; i++) {
     if (arr[i] % 2 == 0) {
       evenCount++;
     }
   }
-  int* evenArr = (int*)malloc(evenCount * sizeof(int));
+  int *evenArr = (int *)malloc(evenCount * sizeof(int));
   if (evenArr == NULL) {
     printf("Error: No se pudo asignar memoria.\n");
     exit(1);
@@ -73,7 +74,8 @@ Descripción: Escribe una función que tome dos arreglos
 ordenados y sus tamaños, y luego fusione estos dos
 arreglos en un tercer arreglo también ordenado.
 */
-void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2, int result[]) {
+void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,
+                       int result[]) {
   int index1 = 0, index2 = 0, indexMerged = 0;
 
   while (index1 < size1 && index2 < size2) {
@@ -146,8 +148,11 @@ typedef struct {
   int anioPublicacion;
 } Libro;
 
-void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor, int anioNacimiento, int anioPublicacion) {
-  
+void inicializarLibro(Libro *libro, const char *titulo, const char *nombreAutor,
+                      int anioNacimiento, int anioPublicacion) {
+  libro = (Libro *)malloc(sizeof(Libro));
+  strcpy(libro->titulo, titulo);
+  libro->anioPublicacion = anioPublicacion;
 }
 
 /*
