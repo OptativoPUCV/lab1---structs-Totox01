@@ -173,7 +173,7 @@ typedef struct nodo {
 } Nodo;
 
 Nodo *crearListaEnlazada(int arr[], int size) {
-  if (tamaño <= 0) {
+  if (size <= 0) {
     return NULL;
   }
 
